@@ -1,4 +1,4 @@
-# wechaty-redux
+# wechaty-ducks-contrib
 
 [![NPM Version](https://img.shields.io/npm/v/wechaty-ducks-contrib?color=brightgreen)](https://www.npmjs.com/package/wechaty-ducks-contrib)
 [![NPM](https://github.com/wechaty/wechaty-ducks-contrib/workflows/NPM/badge.svg)](https://github.com/wechaty/wechaty-ducks-contrib/actions?query=workflow%3ANPM)
@@ -6,9 +6,9 @@
 
 Wechaty Ducks Contrib
 
-[![Wechaty Ducks Redux](docs/images/wechaty-ducks-contrib.png)](https://github.com/wechaty/wechaty-ducks-contrib)
+[![Wechaty Ducks Redux](docs/images/ducks-contrib.png)](https://github.com/wechaty/wechaty-ducks-contrib)
 
-> Image Source: 
+> Image Source: [TikZducks](https://www.ctan.org/pkg/tikzducks)
 
 [![Downloads](https://img.shields.io/npm/dm/wechaty-ducks-contrib.svg?style=flat-square)](https://www.npmjs.com/package/wechaty-ducks-contrib)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue.svg)](https://www.typescriptlang.org/)
