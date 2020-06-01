@@ -48,7 +48,9 @@
     "tstest": "^0.4.10",
     "wechaty": "^0.40.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "typesafe-actions": "^5.1.0"
+  },
   "git": {
     "scripts": {
       "pre-push": "npx git-scripts-pre-push"
