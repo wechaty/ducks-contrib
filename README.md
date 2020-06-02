@@ -61,7 +61,7 @@ Initial version.
 
 1. Requires `wechaty@0.40` or above versions.
 1. Requires `wechaty-redux` Plugin.
-1. API follows the [Ducks](https://github.com/huan/ducks) specification. 
+1. API follows the [Ducks](https://github.com/huan/ducks#readme) specification. 
 
 ## Author
 
