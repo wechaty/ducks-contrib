@@ -55,11 +55,13 @@ store.dispatch(wechatyDuck.actions.ding('redux!'))
 
 ### v0.0.1 (Jun 2, 2020)
 
+[![Ducksify Extension](https://img.shields.io/badge/Redux-Ducksify-yellowgreen)](https://github.com/huan/ducks#3-ducksify-extension-currying--api-interface)
+
 Initial version.
 
 1. Requires `wechaty@0.40` or above versions.
 1. Requires `wechaty-redux` Plugin.
-1. API follows the [Ducks](https://github.com/huan/ducks) specification.
+1. API follows the [Ducks](https://github.com/huan/ducks) specification. 
 
 ## Author
 
