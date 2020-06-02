@@ -27,7 +27,7 @@ See [Ducks](https://github.com/huan/ducks)
 npm install wechaty-ducks-contrib
 ```
 
-### Wechaty Plugin
+### Using Ducks with Wechaty Redux
 
 ```ts
 import {
@@ -49,6 +49,33 @@ store.subscribe(() => console.info(store.getState()))
 store.dispatch(wechatyDuck.actions.ding('redux!'))
 ```
 
+## Ducks References
+
+### 1 Counter
+
+```ts
+import { Counter } from 'wechaty-ducks-contrib'
+import { Ducks }       from 'ducks'
+
+const ducks = new Ducks({ counter: Counter })
+const counterDuck = ducks.ducksify('counter')
+
+console.info(counterDuck.selectors.getMo())
+```
+
+#### 1.1 `selectors`
+
+1. `getMo()`: Get Mobile Originated messages counter number
+1. `getMt()`: Get Mobile Terminated messages counter number
+
+Example:
+
+```ts
+Counter.selectors.getMo(store.getState().counter)()
+// or using Ducksified API:
+counterDuck.selectors.getMo()
+```
+
 ## History
 
 ### master
@@ -61,7 +88,7 @@ Initial version.
 
 1. Requires `wechaty@0.40` or above versions.
 1. Requires `wechaty-redux` Plugin.
-1. API follows the [Ducks](https://github.com/huan/ducks#readme) specification. 
+1. API follows the [Ducks](https://github.com/huan/ducks#readme) specification.
 
 ## Author
 
