@@ -1,21 +1,23 @@
 #!/usr/bin/env ts-node
 
 import { test } from 'tstest'
-import { validateDucksApi } from 'ducks'
 
-import * as CounterApi from '.'
-
+import {
+  validateDucksApi,
+  Ducks,
+}                       from 'ducks'
 import { Wechaty }      from 'wechaty'
 import { PuppetMock }   from 'wechaty-puppet-mock'
-import { Ducks }        from 'ducks'
 
 import {
   WechatyRedux,
   Api as WechatyApi,
 }                     from 'wechaty-redux'
 
+import * as CounterApi from '.'
+
 test('validateDucksApi(counter)', async t => {
-  t.doesNotThrow(() => validateDucksApi(api), 'should pass the ducks api validating')
+  t.doesNotThrow(() => validateDucksApi(CounterApi), 'should pass the ducks api validating')
 })
 
 test('Counter selector & operations', async (t) => {
