@@ -1,22 +1,14 @@
-import {
-  isActionOf,
-}                 from 'typesafe-actions'
+import { isActionOf }         from 'typesafe-actions'
+import { Epic }               from 'redux-observable'
+import { Api as wechatyApi }  from 'wechaty-redux'
 
 import {
   filter,
   mergeMap,
   map,
-}                   from 'rxjs/operators'
-
-import {
-  api as wechatyApi,
-}                           from '../wechaty-redux/'
+}             from 'rxjs/operators'
 
 import * as actions from './actions'
-
-import {
-  Epic,
-}               from 'redux-observable'
 
 const counterEpic: Epic = actions$ => actions$.pipe(
   filter(isActionOf(wechatyApi.actions.messageEvent)),

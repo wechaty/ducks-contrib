@@ -1,25 +1,17 @@
 #!/usr/bin/env ts-node
 import {
   VERSION,
-  WechatyRedux,
-  api,
-}                 from 'wechaty-redux'
+  Counter,
+}                 from 'wechaty-ducks-contrib'
 import { Ducks }  from 'ducks'
-import { Wechaty } from 'wechaty'
 
 async function main () {
   if (VERSION === '0.0.0') {
     throw new Error('version should be set before publishing')
   }
 
-  const ducks = new Ducks({ api })
-  const store = ducks.configureStore()
-
-  const wechaty = Wechaty.instance({ puppet: 'wechaty-puppet-mock' })
-
-  wechaty.use(
-    WechatyRedux({ store })
-  )
+  const ducks = new Ducks({ counter: Counter })
+  ducks.configureStore()
 
   return 0
 }
