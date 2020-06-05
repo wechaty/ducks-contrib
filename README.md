@@ -76,9 +76,26 @@ Counter.selectors.getMo(store.getState().counter)()
 counterDuck.selectors.getMo()
 ```
 
+## Example
+
+There's a full example that demonstrate how to use the Wechaty Redux Ducks at <examples/ducks.ts>.
+
+Use the following commands to run this example, and you can inspect the full source code of it to understand how to use Wechaty Redux and Wechaty Ducks.
+
+```sh
+git clone git@github.com:wechaty/wechaty-ducks-contrib.git
+cd wechaty-ducks-contrib
+npm install
+npm start
+```
+
 ## History
 
 ### master
+
+### v0.1 (Jun 5, 2020)
+
+1. `Counter` Ducks released with example and unit tests.
 
 ### v0.0.1 (Jun 2, 2020)
 
