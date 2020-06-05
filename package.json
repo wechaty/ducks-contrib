@@ -47,13 +47,15 @@
     "pkg-jq": "^0.2.4",
     "tstest": "^0.4.10",
     "utility-types": "^3.10.0",
-    "wechaty": "^0.40.1",
-    "wechaty-puppet-mock": "^0.20.4",
-    "wechaty-redux": "^0.2.7"
+    "wechaty": "^0.40.4",
+    "wechaty-puppet-mock": "^0.22.6",
+    "wechaty-redux": "^0.2.12"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "redux": "*",
+    "wechaty-redux": "*"
+  },
   "dependencies": {
-    "wechaty-redux": "^0.2.7",
     "typesafe-actions": "^5.1.0"
   },
   "git": {

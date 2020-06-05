@@ -1,13 +1,16 @@
 #!/usr/bin/env ts-node
 
-import test from 'ava'
+import test from 'tstest'
 
 import {
   validateDucksApi,
   Ducks,
 }                       from 'ducks'
-import { Wechaty, Room }      from 'wechaty'
-import { PuppetMock }   from 'wechaty-puppet-mock'
+import { Wechaty }       from 'wechaty'
+import {
+  PuppetMock,
+  Mocker,
+}                       from 'wechaty-puppet-mock'
 
 import {
   WechatyRedux,
@@ -16,8 +19,49 @@ import {
 
 import * as CounterApi from '.'
 
+function createFixture () {
+  const ducks = new Ducks({
+    counter: CounterApi,
+    wechaty: WechatyApi,
+  })
+  const counterDuck = ducks.ducksify('counter')
+
+  const store = ducks.configureStore()
+  store.subscribe(() => console.info(store.getState()))
+
+  const mocker = new Mocker()
+  const puppet = new PuppetMock({ mocker })
+
+  const bot = Wechaty.instance({ puppet })
+  bot.use(WechatyRedux({ store }))
+
+  const [ mary, mike ]  = mocker.createContacts(2)
+  const user            = mocker.createContact()
+
+  const [ shop, yard ] = mocker.createRooms(2)
+  const group = mocker.createRoom({
+    memberIdList: [
+      mike.id,
+      mary.id,
+      user.id,
+    ],
+  })
+
+  return {
+    bot,
+    counterDuck,
+    group,
+    mary,
+    mike,
+    mocker,
+    shop,
+    user,
+    yard,
+  }
+}
+
 test('validateDucksApi(counter)', async t => {
-  t.notThrows(() => validateDucksApi(CounterApi), 'should pass the ducks api validating')
+  t.doesNotThrow(() => validateDucksApi(CounterApi), 'should pass the ducks api validating')
 })
 
 test('Counter selector & operations', async t => {
@@ -27,8 +71,6 @@ test('Counter selector & operations', async t => {
   const duck = ducks.ducksify('counter')
 
   ducks.configureStore()
-
-  t.teardown(() => {})
 
   t.is(duck.selectors.getMo(), 0, 'should be 0 for mo with initialized state')
   t.is(duck.selectors.getMt(), 0, 'should be 0 for mt with initialized state')
@@ -43,69 +85,31 @@ test('Counter selector & operations', async t => {
 })
 
 test('Counter epics', async (t) => {
-  const ducks = new Ducks({
-    counter: CounterApi,
-    wechaty: WechatyApi,
-  })
-  const duck = ducks.ducksify('counter')
+  const {
+    bot,
+    mocker,
+    user,
+    mike,
+    counterDuck,
+  }               = createFixture()
 
-  const store = ducks.configureStore()
+  await bot.start()
 
-  function script (this: PuppetMock) {
-    console.info(this.id)
-  }
+  mocker.scan('fasdfasdfs')
+  mocker.login(user)
 
-  // const mocker = new mocker()
+  t.equal(counterDuck.selectors.getMo(), 0, 'should be 0 for mo with initialized state')
+  t.equal(counterDuck.selectors.getMt(), 0, 'should be 0 for mt with initialized state')
 
-  const puppet = new PuppetMock({
-    // mocker,
-    auto: false,
-  })
-
-  const bot = Wechaty.instance({ puppet })
-  bot.use(WechatyRedux({ store }))
-
-  const [ mary, mike ]  = puppet.mocker.createContacts(2)
-  const user            = puppet.mocker.createContact({
-    name: fdsfdfa,
-  })
-
-  const [ shop, yard ] = puppet.mocker.createRooms(2)
-  const group = puppet.mocker.createRoom({
-    topic: 'afs',
-    memberList: [
-      mike,
-      mary,
-      user,
-    ],
-  })
-
-  puppet.mocker.scan('fasdfasdfs')
-  puppet.mocker.login(user)
-
-  mike.say('fasfdsf').to(group)
-
-  group.add(mary).by(mike)
-  group.remove(mary).by(mike)
-  group.topic('ok').by(mike)
-  group.say('test').by(mary)
-
-
-  t.equal(duck.selectors.getMo(), 0, 'should be 0 for mo with initialized state')
-  t.equal(duck.selectors.getMt(), 0, 'should be 0 for mt with initialized state')
-
-  // duck.operations.mo(WECHATY_ID)
+  // counterDuck.operations.mo(WECHATY_ID)
   user.say('fasfdsf').to(mike)
-  t.equal(duck.selectors.getMo(), 1, 'should increase to 1 for mo after user.say()')
-  t.equal(duck.selectors.getMt(), 0, 'should stay 0 for mt after user.say()')
+  t.equal(counterDuck.selectors.getMo(), 1, 'should increase to 1 for mo after user.say()')
+  t.equal(counterDuck.selectors.getMt(), 0, 'should stay 0 for mt after user.say()')
 
-  // duck.operations.mt(WECHATY_ID)
+  // counterDuck.operations.mt(WECHATY_ID)
   mike.say('fdafas').to(user)
-  t.equal(duck.selectors.getMo(), 1, 'should stay 1 for mo after mike.say()')
-  t.equal(duck.selectors.getMt(), 1, 'should increase to 1 for mt after mike.say()')
+  t.equal(counterDuck.selectors.getMo(), 1, 'should stay 1 for mo after mike.say()')
+  t.equal(counterDuck.selectors.getMt(), 1, 'should increase to 1 for mt after mike.say()')
 
-  mary.say('fasd').to(group)
-  t.equal(duck.selectors.getMo(), 1, 'should stay 1 for mo after mike.say()')
-  t.equal(duck.selectors.getMt(), 1, 'should increase to 1 for mt after mike.say()')
-
+  await bot.stop()
 })
