@@ -86,9 +86,10 @@ counterDuck.selectors.getMo()
 
 Initial version.
 
-1. Requires `wechaty@0.40` or above versions.
-1. Requires `wechaty-redux` Plugin.
-1. API follows the [Ducks](https://github.com/huan/ducks#readme) specification.
+1. Requires [Wechaty](https://github.com/wechaty/wechaty) version `0.40` or above.
+1. Requires [WechatyRedux](https://github.com/wechaty/wechaty-redux) Plugin.
+1. API follows the [Ducks](https://github.com/huan/ducks#readme) proposal specification.
+1. Supports [Ducksify](https://github.com/huan/ducks#3-ducksify-extension-currying--api-interface) for using with convenience.
 
 ## Author
 
