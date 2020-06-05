@@ -16,7 +16,7 @@
     "lint:md": "markdownlint README.md",
     "lint:ts": "tsc --noEmit",
     "redux-devtools": "redux-devtools --hostname=localhost --port=8000",
-    "start": "ts-node --files examples/ding-dong-bot.ts",
+    "start": "ts-node --files examples/ducks.ts",
     "test": "npm run lint && npm run test:unit",
     "test:pack": "bash -x scripts/npm-pack-testing.sh",
     "test:unit": "blue-tape -r ts-node/register \"src/**/*.spec.ts\" \"src/*.spec.ts\" \"tests/*.spec.ts\" \"tests/**/*.spec.ts\"",
@@ -53,7 +53,7 @@
     "tstest": "^0.4.10",
     "utility-types": "^3.10.0",
     "wechaty": "^0.40.4",
-    "wechaty-puppet-mock": "^0.22.6",
+    "wechaty-puppet-mock": "^0.22.7",
     "wechaty-redux": "^0.2.17"
   },
   "peerDependencies": {

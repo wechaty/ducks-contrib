@@ -32,14 +32,14 @@ npm install wechaty-ducks-contrib
 ```ts
 import {
   WechatyRedux,
-  api as wechatyApi,
+  Duck as wechatyDuck,
 }                     from 'wechaty-redux'
 import { Wechaty }     from 'wechaty'
 import { Ducks }       from 'ducks'
 
 const bot = Wechaty.instance({ puppet: 'wechaty-puppet-mock' })
 
-const ducks       = new Ducks({ wechaty: wechatyApi })
+const ducks       = new Ducks({ wechaty: wechatyDuck })
 const store       = ducks.configureStore()
 const wechatyDuck = ducks.ducksify('wechaty')
 
