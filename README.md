@@ -93,7 +93,7 @@ npm start
 
 ### master
 
-### v0.1 (Jun 5, 2020)
+### v0.2 (Jun 5, 2020)
 
 1. `Counter` Ducks released with example and unit tests.
 

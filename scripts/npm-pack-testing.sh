@@ -23,6 +23,7 @@ npm install *-*.*.*.tgz \
   @chatie/tsconfig \
   "wechaty@$NPM_TAG" \
   ducks \
+  wechaty-redux \
 
 ./node_modules/.bin/tsc \
   --esModuleInterop \
