@@ -22,10 +22,12 @@
 import test from 'tstest'
 
 import {
-  validateDucksApi,
+  validateDuck,
   Ducks,
+  noopReducer,
+  Api as DucksDuck,
 }                       from 'ducks'
-import { Wechaty }       from 'wechaty'
+import { Wechaty }      from 'wechaty'
 import {
   PuppetMock,
   Mocker,
@@ -33,20 +35,49 @@ import {
 
 import {
   WechatyRedux,
-  Api as WechatyApi,
-}                     from 'wechaty-redux'
+  Duck as WechatyDuck,
+}                       from 'wechaty-redux'
 
-import * as CounterApi from '.'
+import {
+  createStore,
+  compose,
+}                       from 'redux'
+import {
+  composeWithDevTools,
+}                       from 'remote-redux-devtools'
 
-function createFixture () {
+import * as CounterDuck from '.'
+
+// Let the bullets fly...
+const bulletsFly = async (ms = 0) => new Promise(resolve => setTimeout(resolve, ms))
+
+async function * wechatyFixtures () {
   const ducks = new Ducks({
-    counter: CounterApi,
-    wechaty: WechatyApi,
+    counter: CounterDuck,
+    wechaty: WechatyDuck,
   })
   const counterDuck = ducks.ducksify('counter')
 
-  const store = ducks.configureStore()
-  store.subscribe(() => console.info(store.getState()))
+  let devCompose = compose
+
+  if (process.env.REDUX_DEVTOOLS) {
+    devCompose = composeWithDevTools({
+      hostname : 'localhost',
+      port     : 8000,
+      realtime : true,
+      stopOn   : DucksDuck.types.NOOP,
+    }) as any
+  }
+
+  const ducksEnhancer = ducks.enhancer()
+  const store = createStore(
+    noopReducer,
+    devCompose(
+      ducksEnhancer,
+    ) as typeof ducksEnhancer,
+  )
+
+  // store.subscribe(() => console.info(store.getState()))
 
   const mocker = new Mocker()
   const puppet = new PuppetMock({ mocker })
@@ -66,7 +97,9 @@ function createFixture () {
     ],
   })
 
-  return {
+  await bot.start()
+
+  yield {
     bot,
     counterDuck,
     group,
@@ -77,16 +110,23 @@ function createFixture () {
     user,
     yard,
   }
+
+  await bot.stop()
+  // console.info('bot.stop()')
+
+  await bulletsFly()
+  store.dispatch(DucksDuck.actions.noop())
+  // console.info('noop')
 }
 
-test('validateDucksApi(counter)', async t => {
-  t.doesNotThrow(() => validateDucksApi(CounterApi), 'should pass the ducks api validating')
+test('validateDuck(counter)', async t => {
+  t.doesNotThrow(() => validateDuck(CounterDuck), 'should pass the ducks api validating')
 })
 
-test('Counter selector & operations', async t => {
+test('Counter selectors & operations', async t => {
   const WECHATY_ID = 'wechaty-id'
 
-  const ducks = new Ducks({ counter: CounterApi })
+  const ducks = new Ducks({ counter: CounterDuck })
   const duck = ducks.ducksify('counter')
 
   ducks.configureStore()
@@ -103,32 +143,34 @@ test('Counter selector & operations', async t => {
   t.is(duck.selectors.getMt(), 1, 'should be 1 for mt with 2 operations.mt()')
 })
 
-test('Counter epics', async (t) => {
-  const {
-    bot,
+test.only('Counter epics', async (t) => {
+  for await (const {
     mocker,
     user,
     mike,
     counterDuck,
-  }               = createFixture()
+  } of wechatyFixtures()) {
+    mocker.scan('qrcode')
+    mocker.login(user)
 
-  await bot.start()
+    t.equal(counterDuck.selectors.getMo(), 0, 'should be 0 for mo with initialized state')
+    t.equal(counterDuck.selectors.getMt(), 0, 'should be 0 for mt with initialized state')
 
-  mocker.scan('fasdfasdfs')
-  mocker.login(user)
+    user.say('hello').to(mike)
+    await bulletsFly()
 
-  t.equal(counterDuck.selectors.getMo(), 0, 'should be 0 for mo with initialized state')
-  t.equal(counterDuck.selectors.getMt(), 0, 'should be 0 for mt with initialized state')
+    t.equal(counterDuck.selectors.getMo(), 1, 'should increase to 1 for mo after user.say()')
+    t.equal(counterDuck.selectors.getMt(), 0, 'should stay 0 for mt after user.say()')
 
-  // counterDuck.operations.mo(WECHATY_ID)
-  user.say('fasfdsf').to(mike)
-  t.equal(counterDuck.selectors.getMo(), 1, 'should increase to 1 for mo after user.say()')
-  t.equal(counterDuck.selectors.getMt(), 0, 'should stay 0 for mt after user.say()')
+    mike.say('world').to(user)
+    await bulletsFly()
+    t.equal(counterDuck.selectors.getMo(), 1, 'should stay 1 for mo after mike.say()')
+    t.equal(counterDuck.selectors.getMt(), 1, 'should increase to 1 for mt after mike.say()')
 
-  // counterDuck.operations.mt(WECHATY_ID)
-  mike.say('fdafas').to(user)
-  t.equal(counterDuck.selectors.getMo(), 1, 'should stay 1 for mo after mike.say()')
-  t.equal(counterDuck.selectors.getMt(), 1, 'should increase to 1 for mt after mike.say()')
-
-  await bot.stop()
+    mike.say('good').to(user)
+    user.say('morning').to(mike)
+    await bulletsFly()
+    t.equal(counterDuck.selectors.getMo(), 2, 'should increase MO after user.say()')
+    t.equal(counterDuck.selectors.getMt(), 2, 'should increase MT after mike.say()')
+  }
 })

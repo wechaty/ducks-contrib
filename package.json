@@ -44,14 +44,17 @@
     "@chatie/semver": "^0.4.7",
     "@chatie/tsconfig": "^0.10.1",
     "@types/glob": "^7.1.2",
-    "ducks": "^0.6.1",
+    "@types/remote-redux-devtools": "^0.5.4",
+    "ducks": "^0.7.5",
     "glob": "^7.1.6",
     "pkg-jq": "^0.2.4",
+    "redux-devtools-cli": "0.0.1-1",
+    "remote-redux-devtools": "^0.5.16",
     "tstest": "^0.4.10",
     "utility-types": "^3.10.0",
     "wechaty": "^0.40.4",
     "wechaty-puppet-mock": "^0.22.6",
-    "wechaty-redux": "^0.2.14"
+    "wechaty-redux": "^0.2.17"
   },
   "peerDependencies": {
     "redux": "*",

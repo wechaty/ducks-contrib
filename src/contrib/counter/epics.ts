@@ -19,7 +19,7 @@
  */
 import { isActionOf }         from 'typesafe-actions'
 import { Epic }               from 'redux-observable'
-import { Api as wechatyApi }  from 'wechaty-redux'
+import { Duck as wechatyDuck }  from 'wechaty-redux'
 
 import {
   filter,
@@ -30,8 +30,8 @@ import {
 import * as actions from './actions'
 
 const counterEpic: Epic = actions$ => actions$.pipe(
-  filter(isActionOf(wechatyApi.actions.messageEvent)),
-  mergeMap(wechatyApi.utils.toMessage$),
+  filter(isActionOf(wechatyDuck.actions.messageEvent)),
+  mergeMap(wechatyDuck.utils.toMessage$),
   map(message => message.self()
     ? actions.moMessage(message.wechaty.id)
     : actions.mtMessage(message.wechaty.id)
