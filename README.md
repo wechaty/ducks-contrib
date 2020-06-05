@@ -78,7 +78,7 @@ counterDuck.selectors.getMo()
 
 ## Example
 
-There's a full example that demonstrate how to use the Wechaty Redux Ducks at <examples/ducks.ts>.
+There's a full example that demonstrate how to use the Wechaty Redux Ducks at [examples/ducks.ts](examples/ducks.ts).
 
 Use the following commands to run this example, and you can inspect the full source code of it to understand how to use Wechaty Redux and Wechaty Ducks.
 
