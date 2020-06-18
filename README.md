@@ -60,20 +60,20 @@ import { Ducks }       from 'ducks'
 const ducks = new Ducks({ counter: Counter })
 const counterDuck = ducks.ducksify('counter')
 
-console.info(counterDuck.selectors.getMo())
+console.info(counterDuck.selectors.getOutgoing())
 ```
 
 #### 1.1 `selectors`
 
-1. `getMo()`: Get Mobile Originated messages counter number
-1. `getMt()`: Get Mobile Terminated messages counter number
+1. `getOutgoing()`: Get Outgoing (Mobile Originated, MO) messages counter number
+1. `getIncoming()`: Get Incoming (Mobile Terminated, MT) messages counter number
 
 Example:
 
 ```ts
-Counter.selectors.getMo(store.getState().counter)()
+Counter.selectors.getOutgoing(store.getState().counter)()
 // or using Ducksified API:
-counterDuck.selectors.getMo()
+counterDuck.selectors.getOutgoing()
 ```
 
 ## Example
