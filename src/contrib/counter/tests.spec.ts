@@ -131,16 +131,16 @@ test('Counter selectors & operations', async t => {
 
   ducks.configureStore()
 
-  t.is(duck.selectors.getMo(), 0, 'should be 0 for mo with initialized state')
-  t.is(duck.selectors.getMt(), 0, 'should be 0 for mt with initialized state')
+  t.is(duck.selectors.getOutgoing(), 0, 'should be 0 for mo with initialized state')
+  t.is(duck.selectors.getIncoming(), 0, 'should be 0 for mt with initialized state')
 
-  duck.operations.mo(WECHATY_ID)
-  t.is(duck.selectors.getMo(), 1, 'should be 1 for mo with 1 operations.mo()')
-  t.is(duck.selectors.getMt(), 0, 'should be 0 for mt with 1 operations.mo()')
+  duck.operations.outgoing(WECHATY_ID)
+  t.is(duck.selectors.getOutgoing(), 1, 'should be 1 for mo with 1 operations.mo()')
+  t.is(duck.selectors.getIncoming(), 0, 'should be 0 for mt with 1 operations.mo()')
 
-  duck.operations.mt(WECHATY_ID)
-  t.is(duck.selectors.getMo(), 1, 'should be 1 for mo with 2 operations.mt()')
-  t.is(duck.selectors.getMt(), 1, 'should be 1 for mt with 2 operations.mt()')
+  duck.operations.incoming(WECHATY_ID)
+  t.is(duck.selectors.getOutgoing(), 1, 'should be 1 for mo with 2 operations.mt()')
+  t.is(duck.selectors.getIncoming(), 1, 'should be 1 for mt with 2 operations.mt()')
 })
 
 test.only('Counter epics', async (t) => {
@@ -153,24 +153,24 @@ test.only('Counter epics', async (t) => {
     mocker.scan('qrcode')
     mocker.login(user)
 
-    t.equal(counterDuck.selectors.getMo(), 0, 'should be 0 for mo with initialized state')
-    t.equal(counterDuck.selectors.getMt(), 0, 'should be 0 for mt with initialized state')
+    t.equal(counterDuck.selectors.getOutgoing(), 0, 'should be 0 for mo with initialized state')
+    t.equal(counterDuck.selectors.getIncoming(), 0, 'should be 0 for mt with initialized state')
 
     user.say('hello').to(mike)
     await bulletsFly()
 
-    t.equal(counterDuck.selectors.getMo(), 1, 'should increase to 1 for mo after user.say()')
-    t.equal(counterDuck.selectors.getMt(), 0, 'should stay 0 for mt after user.say()')
+    t.equal(counterDuck.selectors.getOutgoing(), 1, 'should increase to 1 for mo after user.say()')
+    t.equal(counterDuck.selectors.getIncoming(), 0, 'should stay 0 for mt after user.say()')
 
     mike.say('world').to(user)
     await bulletsFly()
-    t.equal(counterDuck.selectors.getMo(), 1, 'should stay 1 for mo after mike.say()')
-    t.equal(counterDuck.selectors.getMt(), 1, 'should increase to 1 for mt after mike.say()')
+    t.equal(counterDuck.selectors.getOutgoing(), 1, 'should stay 1 for mo after mike.say()')
+    t.equal(counterDuck.selectors.getIncoming(), 1, 'should increase to 1 for mt after mike.say()')
 
     mike.say('good').to(user)
     user.say('morning').to(mike)
     await bulletsFly()
-    t.equal(counterDuck.selectors.getMo(), 2, 'should increase MO after user.say()')
-    t.equal(counterDuck.selectors.getMt(), 2, 'should increase MT after mike.say()')
+    t.equal(counterDuck.selectors.getOutgoing(), 2, 'should increase MO after user.say()')
+    t.equal(counterDuck.selectors.getIncoming(), 2, 'should increase MT after mike.say()')
   }
 })

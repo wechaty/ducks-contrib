@@ -23,12 +23,12 @@ import * as types from './types'
 
 const prepareWechaty = (wechatyId: string) => ({ wechatyId })
 
-const moMessage = createAction(types.MESSAGE_MO, prepareWechaty)()
-const mtMessage = createAction(types.MESSAGE_MT, prepareWechaty)()
+const outgoingMessage = createAction(types.MESSAGE_OUTGOING, prepareWechaty)()
+const incomingMessage = createAction(types.MESSAGE_INCOMING, prepareWechaty)()
 const noop = createAction(types.NOOP)()
 
 export {
-  moMessage,
-  mtMessage,
+  outgoingMessage,
+  incomingMessage,
   noop,
 }

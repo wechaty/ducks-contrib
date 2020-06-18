@@ -33,8 +33,8 @@ const counterEpic: Epic = actions$ => actions$.pipe(
   filter(isActionOf(wechatyDuck.actions.messageEvent)),
   mergeMap(wechatyDuck.utils.toMessage$),
   map(message => message.self()
-    ? actions.moMessage(message.wechaty.id)
-    : actions.mtMessage(message.wechaty.id)
+    ? actions.outgoingMessage(message.wechaty.id)
+    : actions.incomingMessage(message.wechaty.id)
   )
 )
 

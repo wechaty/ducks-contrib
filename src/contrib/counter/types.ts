@@ -17,14 +17,14 @@
  *   limitations under the License.
  *
  */
-const MESSAGE_MO = 'counter/MESSAGE_MO' // Bot send message
-const MESSAGE_MT = 'counter/MESSAGE_MT' // Bot recv message
+const MESSAGE_OUTGOING = 'wechaty-ducks-contrib/counter/MESSAGE_OUTGOING' // Bot send message
+const MESSAGE_INCOMING = 'wechaty-ducks-contrib/counter/MESSAGE_INCOMING' // Bot recv message
 
 // Workaround for https://github.com/huan/ducks/issues/2
-const NOOP = 'counter/NOOP'
+const NOOP = 'wechaty-ducks-contrib/counter/NOOP'
 
 export {
-  MESSAGE_MO,
-  MESSAGE_MT,
+  MESSAGE_OUTGOING,
+  MESSAGE_INCOMING,
   NOOP,
 }

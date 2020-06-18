@@ -26,30 +26,24 @@ import { DeepReadonly }  from 'utility-types'
 import * as actions from './actions'
 
 const initialState: DeepReadonly<{
-  mo: {
-    [wechatyId: string]: undefined | number,
-  }
-  mt:{
-    [wechatyId: string]: undefined | number,
-  },
+  incoming:{ [wechatyId: string]: undefined | number },
+  outgoing: {[wechatyId: string]: undefined | number },
 }> = {
-  mo: {},
-  mt: {},
+  incoming: {},
+  outgoing: {},
 }
 
 const reducer = createReducer<typeof initialState, ActionType<typeof actions>>(initialState)
-  .handleAction(actions.moMessage, (state, action) => ({
-    ...state,
-    mo: {
-      ...state.mo,
-      [action.payload.wechatyId]: (state.mo[action.payload.wechatyId] || 0) + 1,
+  .handleAction(actions.outgoingMessage, (state, action) => ({ ...state,
+    outgoing: {
+      ...state.outgoing,
+      [action.payload.wechatyId]: (state.outgoing[action.payload.wechatyId] || 0) + 1,
     },
   }))
-  .handleAction(actions.mtMessage, (state, action) => ({
-    ...state,
-    mt: {
-      ...state.mt,
-      [action.payload.wechatyId]: (state.mt[action.payload.wechatyId] || 0) + 1,
+  .handleAction(actions.incomingMessage, (state, action) => ({ ...state,
+    incoming: {
+      ...state.incoming,
+      [action.payload.wechatyId]: (state.incoming[action.payload.wechatyId] || 0) + 1,
     },
   }))
 

@@ -19,22 +19,22 @@
  */
 import { State } from './reducers'
 
-const getMo = (state: State) => (wechatyId?: string) => {
+const getOutgoing = (state: State) => (wechatyId?: string) => {
   if (wechatyId) {
-    return state.mo[wechatyId] || 0
+    return state.outgoing[wechatyId] || 0
   }
-  const moCounterList = Object.values(state.mo).filter(Boolean) as number[]
-  return moCounterList.reduce((acc, cur) => acc + cur, 0)
+  const outgoingCounterList = Object.values(state.outgoing).filter(Boolean) as number[]
+  return outgoingCounterList.reduce((acc, cur) => acc + cur, 0)
 }
-const getMt = (state: State) => (wechatyId?: string) => {
+const getIncoming = (state: State) => (wechatyId?: string) => {
   if (wechatyId) {
-    return state.mt[wechatyId] || 0
+    return state.incoming[wechatyId] || 0
   }
-  const mtCounterList = Object.values(state.mt).filter(Boolean) as number[]
-  return mtCounterList.reduce((acc, cur) => acc + cur, 0)
+  const incomingCounterList = Object.values(state.incoming).filter(Boolean) as number[]
+  return incomingCounterList.reduce((acc, cur) => acc + cur, 0)
 }
 
 export {
-  getMo,
-  getMt,
+  getOutgoing,
+  getIncoming,
 }
