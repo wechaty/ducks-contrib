@@ -108,6 +108,17 @@ Initial version.
 1. API follows the [Ducks](https://github.com/huan/ducks#readme) proposal specification.
 1. Supports [Ducksify](https://github.com/huan/ducks#3-ducksify-extension-currying--api-interface) for using with convenience.
 
+## Contributors
+
+[![contributor](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/images/0)](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/links/0)
+[![contributor](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/images/1)](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/links/1)
+[![contributor](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/images/2)](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/links/2)
+[![contributor](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/images/3)](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/links/3)
+[![contributor](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/images/4)](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/links/4)
+[![contributor](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/images/5)](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/links/5)
+[![contributor](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/images/6)](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/links/6)
+[![contributor](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/images/7)](https://sourcerer.io/fame/huan/wechaty/wechaty-ducks-contrib/links/7)
+
 ## Author
 
 [Huan LI](https://github.com/huan) ([李卓桓](http://linkedin.com/in/zixia)) zixia@zixia.net
