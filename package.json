@@ -54,7 +54,7 @@
     "tstest": "^0.4.10",
     "utility-types": "^3.10.0",
     "wechaty": "^0.40.4",
-    "wechaty-puppet-mock": "^0.22.7",
+    "wechaty-puppet-mock": "^0.28.1",
     "wechaty-redux": "^0.2.17"
   },
   "peerDependencies": {
