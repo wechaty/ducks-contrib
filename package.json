@@ -1,6 +1,6 @@
 {
   "name": "wechaty-ducks-contrib",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Wechaty Ducks Contrib",
   "main": "dist/src/mod.js",
   "typings": "dist/src/mod.d.ts",
