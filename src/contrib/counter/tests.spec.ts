@@ -143,7 +143,7 @@ test('Counter selectors & operations', async t => {
   t.is(duck.selectors.getIncoming(), 1, 'should be 1 for mt with 2 operations.mt()')
 })
 
-test.only('Counter epics', async (t) => {
+test('Counter epics', async (t) => {
   for await (const {
     mocker,
     user,
