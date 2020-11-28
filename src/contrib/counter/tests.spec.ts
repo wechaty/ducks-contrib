@@ -46,7 +46,7 @@ import {
   composeWithDevTools,
 }                       from 'remote-redux-devtools'
 
-import * as CounterDuck from '.'
+import * as CounterDuck from './mod'
 
 // Let the bullets fly...
 const bulletsFly = async (ms = 0) => new Promise(resolve => setTimeout(resolve, ms))
