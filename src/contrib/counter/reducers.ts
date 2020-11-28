@@ -34,13 +34,15 @@ const initialState: DeepReadonly<{
 }
 
 const reducer = createReducer<typeof initialState, ActionType<typeof actions>>(initialState)
-  .handleAction(actions.outgoingMessage, (state, action) => ({ ...state,
+  .handleAction(actions.outgoingMessage, (state, action) => ({
+    ...state,
     outgoing: {
       ...state.outgoing,
       [action.payload.wechatyId]: (state.outgoing[action.payload.wechatyId] || 0) + 1,
     },
   }))
-  .handleAction(actions.incomingMessage, (state, action) => ({ ...state,
+  .handleAction(actions.incomingMessage, (state, action) => ({
+    ...state,
     incoming: {
       ...state.incoming,
       [action.payload.wechatyId]: (state.incoming[action.payload.wechatyId] || 0) + 1,

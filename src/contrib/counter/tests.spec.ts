@@ -85,10 +85,10 @@ async function * wechatyFixtures () {
   const bot = Wechaty.instance({ puppet })
   bot.use(WechatyRedux({ store }))
 
-  const [ mary, mike ]  = mocker.createContacts(2)
+  const [mary, mike]  = mocker.createContacts(2)
   const user            = mocker.createContact()
 
-  const [ shop, yard ] = mocker.createRooms(2)
+  const [shop, yard] = mocker.createRooms(2)
   const group = mocker.createRoom({
     memberIdList: [
       mike.id,
