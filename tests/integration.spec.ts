@@ -25,7 +25,7 @@ import {
 
 import {
   Counter,
-}                 from '../src/'
+}                 from '../src/mod'
 
 test('integration testing', async t => {
   t.ok(Counter, 'should available')
