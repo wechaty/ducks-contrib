@@ -2,8 +2,8 @@
   "name": "wechaty-ducks-contrib",
   "version": "0.2.5",
   "description": "Wechaty Ducks Contrib",
-  "main": "dist/src/index.js",
-  "typings": "dist/src/index.d.ts",
+  "main": "dist/src/mod.js",
+  "typings": "dist/src/mod.d.ts",
   "directories": {
     "test": "tests"
   },

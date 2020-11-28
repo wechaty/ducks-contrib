@@ -19,7 +19,7 @@
  */
 import { VERSION }        from './version'
 
-import * as Counter from './contrib/counter/'
+import * as Counter from './contrib/counter/mod'
 
 export {
   VERSION,
