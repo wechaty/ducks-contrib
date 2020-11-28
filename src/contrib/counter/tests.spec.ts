@@ -30,7 +30,7 @@ import {
 import { Wechaty }      from 'wechaty'
 import {
   PuppetMock,
-  Mocker,
+  mock,
 }                       from 'wechaty-puppet-mock'
 
 import {
@@ -79,7 +79,7 @@ async function * wechatyFixtures () {
 
   // store.subscribe(() => console.info(store.getState()))
 
-  const mocker = new Mocker()
+  const mocker = new mock.Mocker()
   const puppet = new PuppetMock({ mocker })
 
   const bot = Wechaty.instance({ puppet })

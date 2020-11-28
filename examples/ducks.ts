@@ -10,7 +10,7 @@ import {
 import { Counter as CounterDuck } from '../src/mod'
 import {
   PuppetMock,
-  Mocker,
+  mock,
 }                   from 'wechaty-puppet-mock'
 
 // Let the bullets fly...
@@ -33,7 +33,7 @@ async function main () {
     }
   })
 
-  const mocker = new Mocker()
+  const mocker = new mock.Mocker()
   const puppet = new PuppetMock({ mocker })
   const bot    = new Wechaty({ puppet })
   bot.use(WechatyRedux({ store }))
