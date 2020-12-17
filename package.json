@@ -58,8 +58,8 @@
     "wechaty-redux": "^0.2.17"
   },
   "peerDependencies": {
-    "redux": "*",
-    "wechaty-redux": "*"
+    "redux": ">=4.0",
+    "wechaty-redux": ">=0.2"
   },
   "dependencies": {
     "typesafe-actions": "^5.1.0"
