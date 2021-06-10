@@ -53,7 +53,7 @@
     "shx": "^0.3.3",
     "tstest": "^0.4.10",
     "utility-types": "^3.10.0",
-    "wechaty": "^0.60.9",
+    "wechaty": "^0.62.3",
     "wechaty-puppet-mock": "^0.28.2",
     "wechaty-redux": "^0.2.17"
   },
