@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S node --no-warnings --loader ts-node/esm
 /**
  *   Wechaty Open Source Software - https://github.com/wechaty
  *
@@ -25,12 +25,12 @@ import {
 import { Ducks }  from 'ducks'
 
 async function main () {
+  const ducks = new Ducks({ counter: Counter })
+  ducks.configureStore()
+
   if (VERSION === '0.0.0') {
     throw new Error('version should be set before publishing')
   }
-
-  const ducks = new Ducks({ counter: Counter })
-  ducks.configureStore()
 
   return 0
 }

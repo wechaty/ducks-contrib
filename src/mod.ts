@@ -17,9 +17,11 @@
  *   limitations under the License.
  *
  */
-import { VERSION }        from './version'
+import { packageJson }        from './package-json.js'
 
-import * as Counter from './contrib/counter/mod'
+import * as Counter from './contrib/counter/mod.js'
+
+const VERSION = packageJson.version || '0.0.0'
 
 export {
   VERSION,

@@ -17,9 +17,9 @@
  *   limitations under the License.
  *
  */
-import { Dispatch } from 'redux'
+import type { Dispatch } from 'redux'
 
-import * as actions from './actions'
+import * as actions from './actions.js'
 
 const outgoing = (dispatch: Dispatch) => (wechatyId: string) => dispatch(actions.outgoingMessage(wechatyId))
 const incoming = (dispatch: Dispatch) => (wechatyId: string) => dispatch(actions.incomingMessage(wechatyId))

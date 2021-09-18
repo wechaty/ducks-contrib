@@ -7,7 +7,7 @@ import {
   Duck as wechatyDuck,
 }                     from 'wechaty-redux'
 
-import { Counter as CounterDuck } from '../src/mod'
+import { Counter as CounterDuck } from '../src/mod.js'
 import {
   PuppetMock,
   mock,
@@ -39,7 +39,7 @@ async function main () {
   bot.use(WechatyRedux({ store }))
   await bot.start()
 
-  const [user, friend] = mocker.createContacts(2)
+  const [user, friend] = mocker.createContacts(2) as [mock.ContactMock, mock.ContactMock]
   mocker.login(user)
 
   const counterBundle = ducks.ducksify('counter')
