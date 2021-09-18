@@ -27,7 +27,7 @@ import {
   map,
 }             from 'rxjs/operators'
 
-import * as actions from './actions'
+import * as actions from './actions.js'
 
 const counterEpic: Epic = actions$ => actions$.pipe(
   filter(isActionOf(wechatyDuck.actions.messageEvent)),

@@ -17,7 +17,7 @@
  *   limitations under the License.
  *
  */
-import { State } from './reducers'
+import { State } from './reducers.js'
 
 const getOutgoing = (state: State) => (wechatyId?: string) => {
   if (wechatyId) {

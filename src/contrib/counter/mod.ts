@@ -17,13 +17,13 @@
  *   limitations under the License.
  *
  */
-import reducer from './reducers'
+import reducer from './reducers.js'
 
-import * as actions     from './actions'
-import * as epics       from './epics'
-import * as operations  from './operations'
-import * as selectors   from './selectors'
-import * as types       from './types'
+import * as actions     from './actions.js'
+import * as epics       from './epics.js'
+import * as operations  from './operations.js'
+import * as selectors   from './selectors.js'
+import * as types       from './types.js'
 
 export {
   actions,

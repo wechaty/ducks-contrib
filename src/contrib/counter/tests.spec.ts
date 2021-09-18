@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S node --no-warnings --loader ts-node/esm
 
 /**
  *   Wechaty Open Source Software - https://github.com/wechaty
@@ -46,7 +46,7 @@ import {
   composeWithDevTools,
 }                       from 'remote-redux-devtools'
 
-import * as CounterDuck from './mod'
+import * as CounterDuck from './mod.js'
 
 // Let the bullets fly...
 const bulletsFly = async (ms = 0) => new Promise(resolve => setTimeout(resolve, ms))

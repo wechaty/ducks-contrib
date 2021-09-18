@@ -7,7 +7,7 @@ import {
   Duck as wechatyDuck,
 }                     from 'wechaty-redux'
 
-import { Counter as CounterDuck } from '../src/mod'
+import { Counter as CounterDuck } from '../src/mod.js'
 import {
   PuppetMock,
   mock,
