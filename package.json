@@ -1,6 +1,6 @@
 {
   "name": "wechaty-ducks-contrib",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Wechaty Ducks Contrib",
   "type": "module",
   "exports": {
