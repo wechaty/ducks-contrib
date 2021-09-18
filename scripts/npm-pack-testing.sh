@@ -26,7 +26,7 @@ npm install --production ./*-*.*.*.tgz \
   "wechaty-puppet@$NPM_TAG" \
   "wechaty@$NPM_TAG" \
   "ducks@$NPM_TAG" \
-  "wechaty-redux@NPM_TAG" \
+  "wechaty-redux@$NPM_TAG" \
 
 
 #
