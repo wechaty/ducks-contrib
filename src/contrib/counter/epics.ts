@@ -18,7 +18,7 @@
  *
  */
 import { isActionOf }         from 'typesafe-actions'
-import { Epic }               from 'redux-observable'
+import type { Epic }               from 'redux-observable'
 import { Duck as wechatyDuck }  from 'wechaty-redux'
 
 import {

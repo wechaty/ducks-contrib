@@ -17,7 +17,7 @@
  *   limitations under the License.
  *
  */
-import { Dispatch } from 'redux'
+import type { Dispatch } from 'redux'
 
 import * as actions from './actions.js'
 

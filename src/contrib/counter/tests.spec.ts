@@ -19,7 +19,7 @@
  *   limitations under the License.
  *
  */
-import test from 'tstest'
+import { test } from 'tstest'
 
 import {
   validateDuck,
@@ -60,7 +60,7 @@ async function * wechatyFixtures () {
 
   let devCompose = compose
 
-  if (process.env.REDUX_DEVTOOLS) {
+  if (process.env['REDUX_DEVTOOLS']) {
     devCompose = composeWithDevTools({
       hostname : 'localhost',
       port     : 8000,
@@ -85,10 +85,10 @@ async function * wechatyFixtures () {
   const bot = Wechaty.instance({ puppet })
   bot.use(WechatyRedux({ store }))
 
-  const [mary, mike]  = mocker.createContacts(2)
+  const [mary, mike]  = mocker.createContacts(2) as [mock.ContactMock, mock.ContactMock]
   const user            = mocker.createContact()
 
-  const [shop, yard] = mocker.createRooms(2)
+  const [shop, yard] = mocker.createRooms(2) as [mock.RoomMock, mock.RoomMock]
   const group = mocker.createRoom({
     memberIdList: [
       mike.id,
