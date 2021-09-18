@@ -3,6 +3,7 @@
 [![NPM Version](https://img.shields.io/npm/v/wechaty-ducks-contrib?color=brightgreen)](https://www.npmjs.com/package/wechaty-ducks-contrib)
 [![NPM](https://github.com/wechaty/wechaty-ducks-contrib/workflows/NPM/badge.svg)](https://github.com/wechaty/wechaty-ducks-contrib/actions?query=workflow%3ANPM)
 [![Ducksify Extension](https://img.shields.io/badge/Redux-Ducksify-yellowgreen)](https://github.com/huan/ducks#3-ducksify-extension-currying--api-interface)
+[![ES Modules](https://img.shields.io/badge/ES-Modules-brightgreen)](https://github.com/Chatie/tsconfig/issues/16)
 
 Wechaty Ducks Contrib
 
@@ -60,20 +61,20 @@ import { Ducks }       from 'ducks'
 const ducks = new Ducks({ counter: Counter })
 const counterDuck = ducks.ducksify('counter')
 
-console.info(counterDuck.selectors.getOutgoing())
+console.info(counterDuck.selectors.getMO())
 ```
 
 #### 1.1 `selectors`
 
-1. `getOutgoing()`: Get Outgoing (Mobile Originated, MO) messages counter number
-1. `getIncoming()`: Get Incoming (Mobile Terminated, MT) messages counter number
+1. `getMO()`: Get Mobile Originated (MO) messages counter number
+1. `getMT()`: Get Mobile Terminated (MT) messages counter number
 
 Example:
 
 ```ts
-Counter.selectors.getOutgoing(store.getState().counter)()
+Counter.selectors.getMO(store.getState().counter)()
 // or using Ducksified API:
-counterDuck.selectors.getOutgoing()
+counterDuck.selectors.getMO()
 ```
 
 ## Example

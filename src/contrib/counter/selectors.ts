@@ -19,14 +19,14 @@
  */
 import type { State } from './reducers.js'
 
-const getOutgoing = (state: State) => (wechatyId?: string) => {
+const getMO = (state: State) => (wechatyId?: string) => {
   if (wechatyId) {
     return state.outgoing[wechatyId] || 0
   }
   const outgoingCounterList = Object.values(state.outgoing).filter(Boolean) as number[]
   return outgoingCounterList.reduce((acc, cur) => acc + cur, 0)
 }
-const getIncoming = (state: State) => (wechatyId?: string) => {
+const getMT = (state: State) => (wechatyId?: string) => {
   if (wechatyId) {
     return state.incoming[wechatyId] || 0
   }
@@ -35,6 +35,6 @@ const getIncoming = (state: State) => (wechatyId?: string) => {
 }
 
 export {
-  getOutgoing,
-  getIncoming,
+  getMO,
+  getMT,
 }

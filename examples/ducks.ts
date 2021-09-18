@@ -44,20 +44,20 @@ async function main () {
 
   const counterBundle = ducks.ducksify('counter')
 
-  assert(counterBundle.selectors.getOutgoing() === 0, 'mo counter should be 0')
-  assert(counterBundle.selectors.getIncoming() === 0, 'mt counter should be 0')
+  assert(counterBundle.selectors.getMO() === 0, 'mo counter should be 0')
+  assert(counterBundle.selectors.getMT() === 0, 'mt counter should be 0')
 
   user.say('how are you?').to(friend)
   await bulletsFly(3)
 
-  assert(counterBundle.selectors.getOutgoing() === 1, 'mo counter increase 1')
-  assert(counterBundle.selectors.getIncoming() === 0, 'mt counter keep to be 0')
+  assert(counterBundle.selectors.getMO() === 1, 'mo counter increase 1')
+  assert(counterBundle.selectors.getMT() === 0, 'mt counter keep to be 0')
 
   friend.say('fine, thank you.').to(user)
   await bulletsFly(3)
 
-  assert(counterBundle.selectors.getOutgoing() === 1, 'mo counter keep to be 1')
-  assert(counterBundle.selectors.getIncoming() === 1, 'mt counter increase 1')
+  assert(counterBundle.selectors.getMO() === 1, 'mo counter keep to be 1')
+  assert(counterBundle.selectors.getMT() === 1, 'mt counter increase 1')
 
   await bot.stop()
 }
