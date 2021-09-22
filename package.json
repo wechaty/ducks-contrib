@@ -61,7 +61,7 @@
     "redux-devtools-cli": "1.0.0-4",
     "remote-redux-devtools": "^0.5.16",
     "shx": "^0.3.3",
-    "tstest": "^0.5.16",
+    "tstest": "^0.7.2",
     "utility-types": "^3.10.0",
     "wechaty": "^0.69.54",
     "wechaty-puppet-mock": "^0.31.5"
