@@ -63,7 +63,7 @@
     "shx": "^0.3.3",
     "tstest": "^0.5.16",
     "utility-types": "^3.10.0",
-    "wechaty": "^0.69.54",
+    "wechaty": "^0.75.17",
     "wechaty-puppet-mock": "^0.31.5"
   },
   "peerDependencies": {
