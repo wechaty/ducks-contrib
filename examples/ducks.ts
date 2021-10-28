@@ -1,7 +1,7 @@
 import assert from 'assert'
 
-import { WechatyBuilder }     from 'wechaty'
-import { Ducks }       from 'ducks'
+import { WechatyBuilder } from 'wechaty'
+import { Ducks }          from 'ducks'
 import {
   WechatyRedux,
   Duck as wechatyDuck,
