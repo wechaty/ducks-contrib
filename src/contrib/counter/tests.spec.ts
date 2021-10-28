@@ -27,7 +27,7 @@ import {
   noopReducer,
   Api as DucksDuck,
 }                       from 'ducks'
-import { Wechaty }      from 'wechaty'
+import { WechatyBuilder }      from 'wechaty'
 import {
   PuppetMock,
   mock,
@@ -82,7 +82,7 @@ async function * wechatyFixtures () {
   const mocker = new mock.Mocker()
   const puppet = new PuppetMock({ mocker })
 
-  const bot = Wechaty.instance({ puppet })
+  const bot = WechatyBuilder.build({ puppet })
   bot.use(WechatyRedux({ store }))
 
   const [mary, mike]  = mocker.createContacts(2) as [mock.ContactMock, mock.ContactMock]

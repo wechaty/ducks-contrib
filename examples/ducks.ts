@@ -1,6 +1,6 @@
 import assert from 'assert'
 
-import { Wechaty }     from 'wechaty'
+import { WechatyBuilder }     from 'wechaty'
 import { Ducks }       from 'ducks'
 import {
   WechatyRedux,
@@ -35,7 +35,7 @@ async function main () {
 
   const mocker = new mock.Mocker()
   const puppet = new PuppetMock({ mocker })
-  const bot    = new Wechaty({ puppet })
+  const bot    = WechatyBuilder.build({ puppet })
   bot.use(WechatyRedux({ store }))
   await bot.start()
 
