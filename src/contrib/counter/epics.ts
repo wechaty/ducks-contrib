@@ -17,8 +17,8 @@
  *   limitations under the License.
  *
  */
-import { isActionOf }         from 'typesafe-actions'
-import type { Epic }               from 'redux-observable'
+import { isActionOf }           from 'typesafe-actions'
+import type { Epic }            from 'redux-observable'
 import { Duck as wechatyDuck }  from 'wechaty-redux'
 
 import {
@@ -34,8 +34,8 @@ const counterEpic: Epic = actions$ => actions$.pipe(
   mergeMap(wechatyDuck.utils.toMessage$),
   map(message => message.self()
     ? actions.outgoingMessage(message.wechaty.id)
-    : actions.incomingMessage(message.wechaty.id)
-  )
+    : actions.incomingMessage(message.wechaty.id),
+  ),
 )
 
 export {

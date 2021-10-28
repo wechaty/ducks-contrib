@@ -11,7 +11,7 @@
   },
   "typings": "./dist/esm/src/mod.d.ts",
   "engines": {
-    "wechaty": ">=0.69",
+    "wechaty": ">=0.79",
     "node": ">=16",
     "npm": ">=7"
   },
@@ -54,21 +54,16 @@
     "@chatie/tsconfig": "^1.0.2",
     "@types/glob": "^7.2.0",
     "@types/remote-redux-devtools": "^0.5.5",
-    "cross-env": "^7.0.3",
     "glob": "^7.2.0",
-    "npm-run-all": "^4.1.5",
-    "pkg-jq": "^0.2.11",
     "redux-devtools-cli": "1.0.0-4",
     "remote-redux-devtools": "^0.5.16",
-    "shx": "^0.3.3",
-    "tstest": "^1.0.1",
-    "utility-types": "^3.10.0",
-    "wechaty": "^0.78.8",
+    "wechaty": "^0.79.6",
     "wechaty-puppet-mock": "^0.36.1"
   },
   "peerDependencies": {
     "ducks": "^0.11.10",
     "redux": "^4.1.2",
+    "utility-types": "^3.10.0",
     "wechaty-redux": "^1.0.2"
   },
   "dependencies": {
