@@ -35,10 +35,10 @@ import {
   WechatyRedux,
   Duck as wechatyDuck,
 }                     from 'wechaty-redux'
-import { Wechaty }     from 'wechaty'
+import { WechatyBuilder }     from 'wechaty'
 import { Ducks }       from 'ducks'
 
-const bot = Wechaty.instance({ puppet: 'wechaty-puppet-mock' })
+const bot = WechatyBuilder.build({ puppet: 'wechaty-puppet-mock' })
 
 const ducks       = new Ducks({ wechaty: wechatyDuck })
 const store       = ducks.configureStore()
