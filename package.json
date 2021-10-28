@@ -58,7 +58,7 @@
     "redux-devtools-cli": "1.0.0-4",
     "remote-redux-devtools": "^0.5.16",
     "wechaty": "^0.79.6",
-    "wechaty-puppet-mock": "^0.36.1"
+    "wechaty-puppet-mock": "^0.37.0"
   },
   "peerDependencies": {
     "ducks": "^0.11.10",
