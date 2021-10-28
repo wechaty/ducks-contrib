@@ -92,7 +92,9 @@ npm start
 
 ## History
 
-### master v0.3 (Sep 19, 2021)
+### master v1.0 (Sep 19, 2021)
+
+Release v1.0 on Oct 29, 2021
 
 1. ES Modules support
 
