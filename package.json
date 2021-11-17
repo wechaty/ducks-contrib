@@ -1,6 +1,6 @@
 {
   "name": "wechaty-ducks-contrib",
-  "version": "1.0.4",
+  "version": "1.9.4",
   "description": "Wechaty Ducks Contrib",
   "type": "module",
   "exports": {
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wechaty/wechaty-ducks-contrib.git"
+    "url": "git+https://github.com/wechaty/ducks-contrib.git"
   },
   "keywords": [
     "Wechaty",
@@ -44,27 +44,27 @@
   "author": "Huan <zixia@zixia.net> (李卓桓)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/wechaty/wechaty-ducks-contrib/issues"
+    "url": "https://github.com/wechaty/ducks-contrib/issues"
   },
-  "homepage": "https://github.com/wechaty/wechaty-ducks-contrib#readme",
+  "homepage": "https://github.com/wechaty/ducks-contrib#readme",
   "devDependencies": {
     "@chatie/eslint-config": "^1.0.4",
     "@chatie/git-scripts": "^0.6.2",
     "@chatie/semver": "^0.4.7",
-    "@chatie/tsconfig": "^1.0.2",
+    "@chatie/tsconfig": "^1.0.3",
     "@types/glob": "^7.2.0",
     "@types/remote-redux-devtools": "^0.5.5",
     "glob": "^7.2.0",
     "redux-devtools-cli": "1.0.0-4",
     "remote-redux-devtools": "^0.5.16",
-    "wechaty": "^0.79.6",
-    "wechaty-puppet-mock": "^0.37.0"
+    "wechaty": "^1.9.5",
+    "wechaty-puppet-mock": "^1.9.1"
   },
   "peerDependencies": {
-    "ducks": "^1.0.1",
+    "ducks": "^1.0.2",
     "redux": "^4.1.2",
     "utility-types": "^3.10.0",
-    "wechaty-redux": "^1.0.2"
+    "wechaty-redux": "^1.7.1"
   },
   "dependencies": {
     "typesafe-actions": "^5.1.0"
